@@ -103,7 +103,7 @@ app.get("/professional-certs", (req, res) => {
   const { sort, page, limit } = req.query;
 
   if (sort === "name") {
-    results.sort((a, b) => a.name.localeCompare(b.name));
+    results.sort((a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: "base" }));
   } else if (sort === "passingScore") {
     results.sort((a, b) => b.passingScore - a.passingScore);
   }
